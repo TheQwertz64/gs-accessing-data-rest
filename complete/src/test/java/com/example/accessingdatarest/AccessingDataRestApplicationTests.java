@@ -38,7 +38,7 @@ public class AccessingDataRestApplicationTests {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private PersonRepository personRepository;
+	private recTVRepository personRepository;
 
 	@BeforeEach
 	public void deleteAllBeforeTests() throws Exception {
