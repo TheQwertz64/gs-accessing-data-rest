@@ -1,4 +1,4 @@
-package com.example.accessingdatarest;
+package com.example.storeService;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ public class RecTV {
     protected String size;
     protected String resolution;
     protected String manufacturer;
-    protected float discount;
+    //protected float discount;
     protected int stock;
     protected float price;
     protected String priceRange;
@@ -27,18 +27,18 @@ public class RecTV {
         this.size = null;
         this.resolution = null;
         this.manufacturer = null;
-        this.discount = 0;
+        //this.discount = 0;
         this.stock = 0;
         this.price = 0;
     }
 
-    public RecTV(long sid, String model, String size, String resolution, String manufacturer, float discount, int stock, float price){
+    public RecTV(long sid, String model, String size, String resolution, String manufacturer, int stock, float price){
         this.sid = sid;
         this.model = model;
         this.size = size;
         this.resolution = resolution;
         this.manufacturer = manufacturer;
-        this.discount = discount;
+        //this.discount = discount;
         this.stock = stock;
         this.price = price;
     }
@@ -54,12 +54,12 @@ public class RecTV {
 		this.sid = sid;
 	}
 
-    public boolean checkDisplayTV(){
+    /*public boolean checkDisplayTV(){
         if (this.getStock() == 1){
             return true;
         }
         return false;
-    }
+    }*/
 
     public void setResolution(String res){
         this.resolution = res;
@@ -111,7 +111,7 @@ public class RecTV {
 
     @Override
     public String toString(){
-        return String.format("TV[sid=%d, model='%s', size='%s', res='%s',manufacturer='%s',discount='%f', stock='%i', price='%f']",
-        sid,model, size, resolution, manufacturer, discount, stock, price);
+        return String.format("TV[sid=%d, model='%s', size='%s', res='%s',manufacturer='%s', stock='%i', price='%f']",
+        sid,model, size, resolution, manufacturer, stock, price);
     }
 }

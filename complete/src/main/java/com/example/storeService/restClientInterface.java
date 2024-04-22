@@ -1,4 +1,4 @@
-package com.example.accessingdatarest;
+package com.example.storeService;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +16,6 @@ public interface restClientInterface {
     public String silly(@RequestBody String info);
 
     @GetMapping("/nextPage/{sid}")
-    public List<RecTV> getInfo(@PathVariable Long sid);
+    public Object[] nextPage(@PathVariable Long sid);
     
 }

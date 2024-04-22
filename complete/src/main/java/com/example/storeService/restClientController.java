@@ -1,8 +1,8 @@
-package com.example.accessingdatarest;
+package com.example.storeService;
 
 import java.util.List;
+import java.util.ArrayList;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-public interface restClientController {
+public class restClientController implements restClientInterface {
+
+    @Autowired
+    tvService service;
+
     @PostMapping("/dummy")
     public void dummy(@RequestBody String info) {
 
@@ -34,6 +38,17 @@ public interface restClientController {
         RecTV alsoMyTv = new RecTV();
 
         service.saveTv(alsoMyTv);
-        return alsoMyTv.toString;
+        return alsoMyTv.toString();
+    }
+
+    @GetMapping("/nextPage/{sid}")
+    public Object[] nextPage(@PathVariable Long sid) {
+
+        List<String> result = new ArrayList<String>();
+        List<RecTV> sample = service.getData(sid);
+        for(RecTV test : sample){
+            result.add("hi");
+        }
+        return result.toArray();
     }
 }
