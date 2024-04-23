@@ -40,11 +40,11 @@ public class AccessingDataRestApplicationTests {
 	private MockMvc mockMvc;
 
 	@Autowired
-	private recTVRepository personRepository;
+	private recTVRepository tvRepository;
 
 	@BeforeEach
 	public void deleteAllBeforeTests() throws Exception {
-		personRepository.deleteAll();
+		tvRepository.deleteAll();
 	}
 
 	@Test
