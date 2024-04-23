@@ -119,7 +119,7 @@ public class RecTV {
 
     @Override
     public String toString(){
-        return String.format("TV[sid=%d,model='%s',size='%s',res='%s',manufacturer='%s',stock='%i',price='%f']",
+        return String.format("TV[sid=%d,model='%s',size='%s',res='%s',manufacturer='%s',stock='%d',price='%f']",
         sid,model, size, resolution, manufacturer, stock, price);
     }
 }
