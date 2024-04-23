@@ -10,9 +10,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "tvs", path = "tvs")
 public interface recTVRepository extends PagingAndSortingRepository<RecTV, Long>, CrudRepository<RecTV,Long> {
 
-	List<RecTV> findBysid(@Param("sid") long sid);
+	RecTV findBysid(@Param("sid") long sid);
 
-	RecTV findById(long id);
+	//RecTV findById(long id);
 
 
 }

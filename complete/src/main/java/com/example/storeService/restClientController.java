@@ -13,37 +13,43 @@ public class restClientController implements restClientInterface {
     @Autowired
     tvService service;
 
-    @PostMapping("/dummy")
-    public void dummy(@RequestBody String info) {
+    /*
+     * 0 int sales
+     * 1 long sid
+     */
 
-        String[] dummy = info.split(",");
-
-        RecTV myTv = new RecTV();
-        //parse input here
-
-        service.saveTv(myTv);
-
+    @PostMapping("/updateSalesInfo")
+        public String updateSalesInfo(@PathVariable String info){
+        String[] change = info.split(",");
+        service.getTV((long)Integer.parseInt(change[1])).reduceStock(Integer.parseInt(change[0]));
+        service.saveTv(service.getTV((long)Integer.parseInt(change[1])));
+        return service.getTV((long)Integer.parseInt(change[1])).toString();
     }
 
-    @PostMapping("/silly")
-    public String silly(@RequestBody String info) {
-        String[] silly = info.split(",");
-    
 
-        RecTV alsoMyTv = new RecTV();
+    /*
+     * 0 Long sid
+     * 1 String model
+     * 2 String size
+     * 3 String resolution
+     * 4 String Manufacturer
+     * 5 int stock
+     * 6 float price
+     */
 
-        service.saveTv(alsoMyTv);
-        return alsoMyTv.toString();
+
+    @PostMapping("/makeStoreOrder")
+    public String makeStoreOrder(@RequestBody String oosTv) {
+        String[] orderString = oosTv.split(",");
+        return ("-1,"+Integer.parseInt(orderString[0])+",1,"+orderString[4]+",0");
     }
 
-    @GetMapping("/nextPage/{sid}")
-    public Object[] nextPage(@PathVariable Long sid) {
-
-        List<String> result = new ArrayList<String>();
-        List<RecTV> sample = service.getData(sid);
-        for(RecTV test : sample){
-            result.add("hi");
-        }
-        return result.toArray();
+    @GetMapping("/getTvInfo/{sid}")
+    public String getTvInfo(@PathVariable Long sid) {
+        RecTV selTv = service.getTV(sid);
+        
+        return selTv.toString();
     }
+
+
 }

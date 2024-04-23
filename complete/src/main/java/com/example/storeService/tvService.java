@@ -1,7 +1,6 @@
 package com.example.storeService;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +15,12 @@ public class tvService implements serviceInterface{
         tvInventory.save(newTv);
     }
 
-    public List<RecTV> getData(Long id){
+    public RecTV getTV(Long id){
         return tvInventory.findBysid(id);
     }
+
+    /*public List<RecTV> getData(){
+    /*    List<RecTV> allTvs = new List<RecTV>();
+    }*/
     
 }

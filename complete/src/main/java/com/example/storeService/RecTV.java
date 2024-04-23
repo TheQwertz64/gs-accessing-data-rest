@@ -65,6 +65,14 @@ public class RecTV {
         this.resolution = res;
     }
 
+    public void incrementStock(int stockChange){
+        this.stock += stockChange;
+    }
+
+    public void reduceStock(int stockChange){
+        this.stock -= stockChange;
+    }
+
     public String getResolution(){
         return this.resolution;
     }
@@ -111,7 +119,7 @@ public class RecTV {
 
     @Override
     public String toString(){
-        return String.format("TV[sid=%d, model='%s', size='%s', res='%s',manufacturer='%s', stock='%i', price='%f']",
+        return String.format("TV[sid=%d,model='%s',size='%s',res='%s',manufacturer='%s',stock='%i',price='%f']",
         sid,model, size, resolution, manufacturer, stock, price);
     }
 }

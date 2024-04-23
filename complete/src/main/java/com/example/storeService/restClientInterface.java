@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface restClientInterface {
 
-    @PostMapping("/dummy")
-    public void dummy(@RequestBody String info);
+    @PostMapping("/updateSalesInfo")
+    public String updateSalesInfo(@RequestBody String info);
 
-    @PostMapping("/silly")
-    public String silly(@RequestBody String info);
+    @PostMapping("/makeStoreOrder")
+    public String makeStoreOrder(@RequestBody String oosTv);
 
-    @GetMapping("/nextPage/{sid}")
-    public Object[] nextPage(@PathVariable Long sid);
+    @GetMapping("/getTvInfo/{sid}")
+    public String getTvInfo(@PathVariable Long sid);
     
 }

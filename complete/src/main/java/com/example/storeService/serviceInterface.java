@@ -5,5 +5,7 @@ import java.util.*;
 public interface serviceInterface {
     public void saveTv(RecTV recTV);
 
-    public List<RecTV> getData(Long sid);
+    //public List<RecTV> getData(Long sid);
+
+    public RecTV getTV(Long sid);
 }
