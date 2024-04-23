@@ -28,6 +28,15 @@ public class restClientController implements restClientInterface {
         return service.getTV((long)Integer.parseInt(change[1])).toString();
     }
 
+    @GetMapping("/findAllTvs")
+        public List<String> findAllTvs(){
+            List<RecTV> inventory = service.getData();
+            List<String> stringInv = new ArrayList<String>();
+            for(RecTV next : inventory){
+                stringInv.add(next.toString());
+            }
+            return stringInv;
+        }
 
     /*
      * 0 Long sid

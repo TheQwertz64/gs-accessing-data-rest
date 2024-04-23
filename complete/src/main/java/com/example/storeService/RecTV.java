@@ -17,7 +17,6 @@ public class RecTV {
     protected String size;
     protected String resolution;
     protected String manufacturer;
-    //protected float discount;
     protected int stock;
     protected float price;
     protected String priceRange;
@@ -27,7 +26,6 @@ public class RecTV {
         this.size = null;
         this.resolution = null;
         this.manufacturer = null;
-        //this.discount = 0;
         this.stock = 0;
         this.price = 0;
     }
@@ -38,7 +36,6 @@ public class RecTV {
         this.size = size;
         this.resolution = resolution;
         this.manufacturer = manufacturer;
-        //this.discount = discount;
         this.stock = stock;
         this.price = price;
     }
@@ -53,13 +50,6 @@ public class RecTV {
 	public void setSid(Long sid) {
 		this.sid = sid;
 	}
-
-    /*public boolean checkDisplayTV(){
-        if (this.getStock() == 1){
-            return true;
-        }
-        return false;
-    }*/
 
     public void setResolution(String res){
         this.resolution = res;

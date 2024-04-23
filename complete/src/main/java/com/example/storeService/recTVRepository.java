@@ -12,6 +12,8 @@ public interface recTVRepository extends PagingAndSortingRepository<RecTV, Long>
 
 	RecTV findBysid(@Param("sid") long sid);
 
+	List<RecTV> findAll();
+
 	//RecTV findById(long id);
 
 

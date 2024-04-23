@@ -19,8 +19,9 @@ public class tvService implements serviceInterface{
         return tvInventory.findBysid(id);
     }
 
-    /*public List<RecTV> getData(){
-    /*    List<RecTV> allTvs = new List<RecTV>();
-    }*/
+    public List<RecTV> getData(){
+        List<RecTV> data = tvInventory.findAll();
+        return data;
+    }
     
 }
