@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class restClientController implements restClientInterface {
@@ -20,8 +22,8 @@ public class restClientController implements restClientInterface {
      * 1 long sid
      */
 
-    //for the store to take note of how many tvs have been sold
-    @PostMapping("/updateSalesInfo")
+    //for update the repo 
+    @PostMapping("/updateSalesInfo/{info}")
         public String updateSalesInfo(@PathVariable String info){
         String[] change = info.split(",");
         service.getTV((long)Integer.parseInt(change[1])).reduceStock(Integer.parseInt(change[0]));
@@ -69,6 +71,19 @@ public class restClientController implements restClientInterface {
         RecTV selTv = service.getTV(sid);
         return selTv.toString();
     }
+
+    //if there are at least 10 levelTwoMembers discounts the cheapest tv by 10%
+    @PostMapping("/levelTwoMembers")
+    public void levelTwoMembers(@RequestParam List<Integer> lvTwoMembers) {
+        int members = lvTwoMembers.size();
+        if (members > 9){
+            float curPrice = service.cheapestTv().getPrice();
+            curPrice *= .9;
+            service.cheapestTv().setPrice(curPrice);
+        }
+        service.saveTv(service.cheapestTv());
+    }
+    
 
 
 }

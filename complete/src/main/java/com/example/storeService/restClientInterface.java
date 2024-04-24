@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface restClientInterface {
 
-    @PostMapping("/updateSalesInfo")
+    @PostMapping("/updateSalesInfo{info}")
     public String updateSalesInfo(@PathVariable String info);
 
     @PostMapping("/makeStoreOrder")
@@ -24,4 +24,6 @@ public interface restClientInterface {
     @GetMapping("/cheapestTv")
     public String cheapestTv();
 
+    @PostMapping("/levelTwoMembers")
+    public void levelTwoMembers(@RequestParam List<Integer> lvTwoMembers);
 }
