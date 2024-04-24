@@ -14,7 +14,4 @@ public interface recTVRepository extends PagingAndSortingRepository<RecTV, Integ
 
 	List<RecTV> findAll();
 
-	RecTV findByLowestPrice();
-
-
 }

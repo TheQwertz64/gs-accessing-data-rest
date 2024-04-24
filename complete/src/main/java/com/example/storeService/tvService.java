@@ -15,13 +15,26 @@ public class tvService implements serviceInterface{
         tvInventory.save(newTv);
     }
 
-    public RecTV getTV(Long id){
-        return tvInventory.findBysid(id);
+    public RecTV getTV(long sid){
+        return tvInventory.findBysid(sid);
     }
 
     public List<RecTV> getData(){
         List<RecTV> data = tvInventory.findAll();
         return data;
+    }
+
+    public RecTV cheapestTv(){
+        float price = 0.0f;
+        RecTV sel = new RecTV();
+        List<RecTV> data = tvInventory.findAll();
+        for(RecTV a: data){
+            if (a.getPrice() < price){
+                price = a.getPrice();
+                sel = a;
+            }
+        }
+        return sel;
     }
     
 }

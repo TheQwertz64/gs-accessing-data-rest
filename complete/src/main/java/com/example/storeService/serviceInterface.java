@@ -7,8 +7,8 @@ public interface serviceInterface {
 
     public List<RecTV> getData();
 
-    public RecTV getTV(Long sid);
+    public RecTV getTV(long sid);
 
-
+    public RecTV cheapestTv();
     
 }

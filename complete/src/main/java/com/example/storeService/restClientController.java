@@ -20,6 +20,7 @@ public class restClientController implements restClientInterface {
      * 1 long sid
      */
 
+    //for the store to take note of how many tvs have been sold
     @PostMapping("/updateSalesInfo")
         public String updateSalesInfo(@PathVariable String info){
         String[] change = info.split(",");
@@ -28,6 +29,7 @@ public class restClientController implements restClientInterface {
         return service.getTV((long)Integer.parseInt(change[1])).toString();
     }
 
+    //for sales to get a list of all the tvs
     @GetMapping("/findAllTvs")
         public List<String> findAllTvs(){
             List<RecTV> inventory = service.getData();
@@ -47,16 +49,21 @@ public class restClientController implements restClientInterface {
      * 5 int stock
      * 6 float price
      */
+    
+    //for member accounts to find the cheapest tv for their promotion
+    @GetMapping("/cheapestTv")
+    public String cheapestTv(){
+        return service.cheapestTv().toString();
+    }
 
-    //@GetMapping("/cheapestTv")
-
-
+    //for the store to make a special order when oos of a tv
     @PostMapping("/makeStoreOrder")
     public String makeStoreOrder(@RequestBody String oosTv) {
         String[] orderString = oosTv.split(",");
         return ("-1,"+Integer.parseInt(orderString[0])+",1,"+orderString[4]+",0");
     }
 
+    //for special order and store to get info on a specific tv
     @GetMapping("/getTvInfo/{sid}")
     public String getTvInfo(@PathVariable Long sid) {
         RecTV selTv = service.getTV(sid);

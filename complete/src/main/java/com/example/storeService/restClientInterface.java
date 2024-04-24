@@ -21,4 +21,7 @@ public interface restClientInterface {
     @GetMapping("/findAllTvs")
     public List<String> findAllTvs();
 
+    @GetMapping("/cheapestTv")
+    public String cheapestTv();
+
 }
