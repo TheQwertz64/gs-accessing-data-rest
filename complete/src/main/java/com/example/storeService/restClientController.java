@@ -48,6 +48,8 @@ public class restClientController implements restClientInterface {
      * 6 float price
      */
 
+    //@GetMapping("/cheapestTv")
+
 
     @PostMapping("/makeStoreOrder")
     public String makeStoreOrder(@RequestBody String oosTv) {
@@ -58,7 +60,6 @@ public class restClientController implements restClientInterface {
     @GetMapping("/getTvInfo/{sid}")
     public String getTvInfo(@PathVariable Long sid) {
         RecTV selTv = service.getTV(sid);
-        
         return selTv.toString();
     }
 

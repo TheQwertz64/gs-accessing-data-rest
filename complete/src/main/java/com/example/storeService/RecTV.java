@@ -10,7 +10,7 @@ public class RecTV {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	public long id;
+	public int id;
     
     protected long sid;
     protected String model;
@@ -40,7 +40,7 @@ public class RecTV {
         this.price = price;
     }
 
-    public Long getId() {
+    public int getId() {
 		return id;
 	}
 
